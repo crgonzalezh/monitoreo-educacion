@@ -1,0 +1,9 @@
+[
+  { "region": "Arica y Parinacota", "matricula": 43200 },
+  { "region": "Tarapacá", "matricula": 56700 },
+  { "region": "Antofagasta", "matricula": 74300 },
+  { "region": "Atacama", "matricula": 51500 },
+  { "region": "Coquimbo", "matricula": 93500 },
+  { "region": "Valparaíso", "matricula": 210300 },
+  { "region": "Metropolitana", "matricula": 1189400 }
+]

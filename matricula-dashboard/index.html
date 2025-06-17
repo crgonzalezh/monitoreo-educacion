@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrícula Escolar 2023 - Chile</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Matrícula Escolar 2023 por Región</h1>
+  <div id="container"></div>
+
+  <script>
+    fetch('./data/matricula_2023.json')
+      .then(response => response.json())
+      .then(data => {
+        const categorias = data.map(r => r.region);
+        const matriculas = data.map(r => r.matricula);
+
+        Highcharts.chart('container', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'Matrícula Escolar 2023 por Región'
+          },
+          xAxis: {
+            categories: categorias,
+            title: {
+              text: 'Regiones'
+            }
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'Matrícula'
+            }
+          },
+          series: [{
+            name: 'Matrícula',
+            data: matriculas
+          }]
+        });
+      })
+      .catch(err => console.error('Error al cargar datos:', err));
+  </script>
+</body>
+</html>
